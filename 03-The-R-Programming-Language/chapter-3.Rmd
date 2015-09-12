@@ -1,0 +1,11 @@
+---
+title: "Chapter 3: The R Programming Language"
+output: html_document
+---
+
+### Exercise 2.3
+```{r}
+x <- seq(from=-3, to=3, by=0.1)
+y <- x^3
+plot(x, y, col="skyblue", type="l")
+```

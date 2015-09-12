@@ -1,0 +1,61 @@
+---
+title: "Chapter 6"
+output: html_document
+---
+
+### Exercise 6.1
+**(A)**
+```{r}
+source("~/repo/doing_bayesian_data_analysis/DBDA2Eprograms/BernBeta.R")
+source("~/repo/doing_bayesian_data_analysis/DBDA2Eprograms/DBDA2E-utilities.R")
+post <- BernBeta(priorBetaAB=c(4,4), Data=c(1))
+```
+
+**(B)**
+```{r}
+post <- BernBeta(priorBetaAB=post, Data=c(1))
+```
+
+**(C)**
+```{r}
+post <- BernBeta(priorBetaAB=post, Data=c(0))
+```
+
+**(D)**
+```{r}
+post <- BernBeta(priorBetaAB=c(4,4), Data=c(0))
+post <- BernBeta(priorBetaAB=post, Data=c(1))
+post <- BernBeta(priorBetaAB=post, Data=c(1))
+```
+
+### Exercise 6.2
+**(A)**
+```{r}
+Data <- c(rep(1, 58), rep(0, 42))
+post <- BernBeta(priorBetaAB=c(1,1), Data=Data, showHDI=T, showCentTend="Mode")
+```
+
+**(B)**
+```{r}
+Data <- c(rep(1, 57), rep(0, 43))
+post <- BernBeta(priorBetaAB=post, Data=Data, showHDI=T, showCentTend="Mode")
+```
+
+### Exercise 6.4
+```{r}
+Data <- c(rep(0,1), rep(1, 4))
+post <- BernBeta(priorBetaAB=c(0.01,0.01), Data=Data, showHDI=T, showCentTend="Mode")
+```
+
+### Exercise 6.5
+**(A)**
+```{r}
+Data <- c(rep(0,1), rep(1, 9))
+post <- BernBeta(priorBetaAB=c(500,500), Data=Data, showHDI=T, showCentTend="Mean")
+```
+
+**(B)**
+```{r}
+Data <- c(rep(0,1), rep(1, 9))
+post <- BernBeta(priorBetaAB=c(.01,.01), Data=Data, showHDI=T, showCentTend="Mean")
+```

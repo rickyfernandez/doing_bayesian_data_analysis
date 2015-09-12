@@ -1,0 +1,42 @@
+---
+title: "Chapter 2: Credibility, Models, and Parameters"
+output: html_document
+---
+
+### Exercise 2.1
+```{r}
+plotdice <- function(array) {
+  plot(array, type="h", lwd=5, col="skyblue",
+     xlab="x", ylab="p(x)",
+     axes=FALSE)
+  ticks <- seq(from=1, to=4)
+  axis(side=1, at=ticks)
+  axis(side=2)
+}
+```
+
+No bias, all values equal
+```{r}
+dice <- rep(1.0,4)/4.0
+dice
+plotdice(dice)
+```
+
+Bias toward faces with higher values
+```{r}
+dice <- seq(from=1, to=4)/10.0
+dice
+plotdice(dice)
+```
+
+Bias toward faces with lower values
+```{r}
+dice <- 12.0/(25*seq(from=1, to=4))
+dice
+plotdice(dice)
+```
+
+### Exercise 2.2
+Accoding to the data, it reinforces model A while models B and C
+are not consistent with the model. In the next case the data is
+more consistent with model C.
